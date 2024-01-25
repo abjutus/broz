@@ -17,7 +17,7 @@
     "broz": "./broz.js"
   },
   "scripts": {
-    "dev": "electron index.js",
+    "dev": "electron index.js https://antfu.me/",
     "lint": "eslint .",
     "release": "bumpp --commit --tag --push && npm publish"
   },
