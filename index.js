@@ -60,13 +60,15 @@ yargs
   .parse()
 
 const windowSizes = [
-  { width: 1920, height: 1080 },
-  { width: 1280, height: 720 },
-  { width: 1024, height: 768 },
-  { width: 960, height: 540 },
-  { width: 640, height: 360 },
-  { width: 1000, height: 1000 },
-  { width: 500, height: 500 },
+  { width: 1920, height: 1080, label: 'Presentation 16:9' }, // Presentation 16:9
+  { width: 1728, height: 1117, label: 'Macbook Pro 16"' }, // MacBook Pro 16"
+  { width: 1512, height: 982, label: 'Macbook Pro 14"' }, // MacBook Pro 14"
+  { width: 1440, height: 1024, label: 'Desktop' }, // Desktop
+  { width: 1280, height: 832, label: 'Macbook Air' }, // MacBook Air
+  { width: 1024, height: 1366, label: 'iPad Pro 12.9"' }, // iPad Pro 12.9"
+  { width: 744, height: 1133, label: 'iPad mini 8.3"' }, // iPad mini 8.3"
+  { width: 430, height: 932, label: 'iPhone 14 \& 15 Pro Max' }, // iPhone 14 & 15 Pro Max
+  { width: 320, height: 568, label: 'iPhone SE' }, // iPhone SE
 ]
 
 function createMainWindow(args) {
@@ -118,9 +120,8 @@ function createMainWindow(args) {
       },
       {
         label: 'Resize',
-        submenu: windowSizes.map(({ width, height }) => ({
-
-          label: `${width} x ${height} (${getRatio(width, height)})`,
+        submenu: windowSizes.map(({ width, height, label }) => ({
+          label: `${width} x ${height} ( ${label} )`,
           click: () => {
             const win = BrowserWindow.getFocusedWindow() || main
             win.setSize(width, height, true)
