@@ -72,9 +72,10 @@ const windowSizes = [
 ]
 
 function createMainWindow(args) {
+  const defaultSize = windowSizes.find(({ label }) => label === 'Macbook Pro 14"') ?? windowSizes[0]
   const state = createState({
-    defaultWidth: 960,
-    defaultHeight: 540,
+    defaultWidth: defaultSize.width,
+    defaultHeight: defaultSize.height,
   })
 
   const main = new BrowserWindow({
